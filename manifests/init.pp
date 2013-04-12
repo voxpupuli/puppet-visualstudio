@@ -1,4 +1,4 @@
-# Class windows_visualstudio
+# Class visualstudio
 #
 # This class installs the Microsoft Visual Studio on windows
 #
@@ -16,13 +16,13 @@
 #
 # Usage:
 #
-#   class { 'windows_visualstudio': 
+#   class { 'visualstudio': 
 #     ensure => present,
 #     version => '2010',
 #     edition => 'Professional',
 #     license_key => 'XXX-XXX-XXX-XXX-XXX'
 #   }
-class windows_visualstudio(
+class visualstudio(
   $ensure = 'present', 
   $deployment_root = hiera('windows_deployment_root'),
   $version = hiera('visualstudio_version'), 
@@ -31,7 +31,7 @@ class windows_visualstudio(
   $license_key = hiera('visualstudio_license_key'),
 ) {
   
-  class { 'windows_visualstudio::package':
+  class { 'visualstudio::package':
     ensure      => $ensure,
     version     => $version,
     edition     => $edition,

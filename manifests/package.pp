@@ -1,4 +1,4 @@
-# Class windows_visualstudio
+# Class visualstudio::package
 #
 # This class installs the Microsoft Visual Studio on windows
 #
@@ -16,7 +16,7 @@
 #
 # Usage:
 #
-class windows_visualstudio::package(
+class visualstudio::package(
   $ensure = 'present', 
   $deployment_root = hiera('windows_deployment_root'),
   $version = hiera('visualstudio_version'), 
@@ -51,12 +51,12 @@ class windows_visualstudio::package(
   }
     
   if size($components) == 0 {
-    $compnents = $windows_visualstudio::components_list
+    $compnents = $visualstudio::components_list
   }
     
   if $ensure == 'present' {
     file { "${temp_dir}\\visualstudio_config.xml":
-      content => template('windows_visualstudio/AdminDeployment.xml.erb'),
+      content => template('visualstudio/AdminDeployment.xml.erb'),
       mode    => '0755',
       owner   => 'Administrator',
       group   => 'Administrators',
