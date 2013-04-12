@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AdminDeploymentCustomizations xmlns="http://schemas.microsoft.com/wix/2011/AdminDeployment">
+   <BundleCustomizations TargetDir="default" NoWeb="default"/>
+
+   <SelectableItemCustomizations>
+     <% scope.lookupvar('windows_visualstudio::package::component_list').each do |component| %>
+       <% if scope.lookupvar('windows_visualstudio::package::components').include? component %>
+	   		<% if component =~ /Hidden$/ %>
+            <SelectableItemCustomization Id="<%= component %>" Selected="yes"/>
+			<% else %>
+			<SelectableItemCustomization Id="<%= component %>" Selected="yes" Hidden="no"/>
+			<% end %>
+       <% else %>
+            <% if component =~ /Hidden$/ %>
+			<SelectableItemCustomization Id="<%= component %>" Selected="no"/>
+			<% else %>
+			<SelectableItemCustomization Id="<%= component %>" Selected="no" Hidden="no"/>
+			<% end %>
+       <% end %>
+     <% end %>
+  </SelectableItemCustomizations>
+
+</AdminDeploymentCustomizations>
