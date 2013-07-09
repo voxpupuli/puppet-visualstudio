@@ -3,8 +3,8 @@
    <BundleCustomizations TargetDir="default" NoWeb="default"/>
 
    <SelectableItemCustomizations>
-     <% scope.lookupvar('windows_visualstudio::package::component_list').each do |component| %>
-       <% if scope.lookupvar('windows_visualstudio::package::components').include? component %>
+     <% scope.lookupvar('visualstudio::params::component_list').each do |component| %>
+       <% if scope.lookupvar('visualstudio::params::component_list').include? component %>
 	   		<% if component =~ /Hidden$/ %>
             <SelectableItemCustomization Id="<%= component %>" Selected="yes"/>
 			<% else %>
