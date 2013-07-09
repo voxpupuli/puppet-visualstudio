@@ -1,4 +1,4 @@
-#Microsoft Office module for Puppet
+#Microsoft Visual Studio module for Puppet
 
 
 ##Overview
