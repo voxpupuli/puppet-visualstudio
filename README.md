@@ -7,6 +7,10 @@ Puppet module to manage Microsoft Visual Studio
 
 This module is also available on the [Puppet Forge](https://forge.puppetlabs.com/liamjbennett/visualstudio)
 
+[![Build
+Status](https://secure.travis-ci.org/liamjbennett/puppet-visualstudio.png)](http://travis-ci.org/liamjbennett/puppet-visualstudio)
+[![Dependency
+Status](https://gemnasium.com/liamjbennett/puppet-visualstudio.png)](http://gemnasium.com/liamjbennett/puppet-visualstudio)
 
 ##Module Description
 
