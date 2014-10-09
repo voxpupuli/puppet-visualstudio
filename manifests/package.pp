@@ -1,20 +1,13 @@
-# Class visualstudio::package
+# Author::    Liam Bennett (mailto:liamjbennett@gmail.com)
+# Copyright:: Copyright (c) 2014 Liam Bennett
+# License::   MIT
+
+# == Define: visualstudio::package
 #
 # This class installs the Microsoft Visual Studio on windows
 #
-# Parameters:
-#   [*ensure*]          - Control the existence of office    
-#   [*deployment_root*] - The network location to go and find the package
-#   [*version*]         - The version of visual studio to install
-#   [*edition*]         - The edition of visual studio
-#   [*component*]       - The list of components to install as part of the visual studio suite
-#   [*license_key*]     - The license key required to install
-#
-# Actions:
-#
-# Requires:
-#
-# Usage:
+# This private definition is meant to be called from `visualstudio`
+# It sets variables according to platform
 #
 define visualstudio::package(
   $version,

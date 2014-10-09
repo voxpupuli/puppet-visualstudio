@@ -1,7 +1,15 @@
+# Author::    Liam Bennett (mailto:liamjbennett@gmail.com)
+# Copyright:: Copyright (c) 2014 Liam Bennett
+# License::   MIT
+
+# == Class visualstudio::params
+#
+# This private class is meant to be called from `visualstudio`
+# It sets variables according to platform
 #
 class visualstudio::params {
   $temp_dir = 'C:\\Windows\\Temp'
-  $deployment_root = hiera('windows_deployment_root')
+  $deployment_root = ''
 
   $component_list = [
     'WebTools', 'OfficeTools', 'SharepointTools', 'LightSwitch', 'SilverLight_Developer_Kit',

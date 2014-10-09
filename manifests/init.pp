@@ -1,27 +1,44 @@
-# Define visualstudio
+# Author::    Liam Bennett (mailto:liamjbennett@gmail.com)
+# Copyright:: Copyright (c) 2014 Liam Bennett
+# License::   MIT
+
+# == Define: visualstudio
 #
-# This definition installs the Microsoft Visual Studio on windows
+# Module to manage the installation of Microsoft Visual Studio
 #
-# Parameters:
-#   [*version*]         - The version of visual studio to install
-#   [*edition*]         - The edition of visual studio
-#   [*component*]       - The list of components to install as part of the visual studio suite
-#   [*license_key*]     - The license key required to install
-#   [*ensure*]          - Control the existence of visualstudio
+# === Requirements/Dependencies
 #
-# Actions:
+# Currently reequires the puppetlabs/stdlib module on the Puppet Forge in
+# order to validate much of the the provided configuration.
 #
-# Requires:
+# === Parameters
 #
-# Usage:
+# [*version*]
+# The version of visual studio to install
 #
-#     visualstudio { "visual studio":
-#       ensure      => $ensure,
-#       version     => $version,
-#       edition     => $edition,
-#       license_key => $license_key,
-#       components  => $components,
+# [*edition*]
+# The edition of visual studio
+#
+# [*component*]
+# The list of components to install as part of the visual studio suite
+#
+# [*license_key*]
+# The license key required to install
+#
+# [*ensure*]
+# Control the existence of visualstudio
+#
+# === Examples:
+#
+#  Install visual studio 2012:
+#
+#    visualstudio { "visual studio 2012":
+#      ensure      => 'present',
+#      version     => '2012',
+#      edition     => 'professional',
+#      license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'
 #    }
+#
 define visualstudio(
   $version,
   $edition,

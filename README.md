@@ -1,16 +1,23 @@
-#Microsoft Visual Studio module for Puppet
+# puppet-visualstudio
 
+####Table of Contents
+
+1. [Overview](#overview)
+2. [Module Description - What is the visualstudio module?](#module-description)
+3. [Setup - The basics of getting started with visualstudio](#setup)
+    * [What visualstudio affects](#what-visualstudio-affects)
+    * [Setup requirements](#setup-requirements)
+    * [Beginning with visualstudio](#beginning-with-visualstudio)
+4. [Usage - Configuration options and additional functionality](#usage)
+5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+5. [Limitations - OS compatibility, etc.](#limitations)
+6. [Development - Guide for contributing to the module](#development)
 
 ##Overview
 
-Puppet module to manage Microsoft Visual Studio
+Puppet module for managing [Microsoft Visual Studio](http://www.visualstudio.com/)
 
-This module is also available on the [Puppet Forge](https://forge.puppetlabs.com/liamjbennett/visualstudio)
-
-[![Build
-Status](https://secure.travis-ci.org/liamjbennett/puppet-visualstudio.png)](http://travis-ci.org/liamjbennett/puppet-visualstudio)
-[![Dependency
-Status](https://gemnasium.com/liamjbennett/puppet-visualstudio.png)](http://gemnasium.com/liamjbennett/puppet-visualstudio)
+[![Build Status](https://secure.travis-ci.org/liamjbennett/puppet-visualstudio.png)](http://travis-ci.org/liamjbennett/puppet-visualstudio)
 
 ##Module Description
 
@@ -18,46 +25,67 @@ The purpose of this module is to install the Microsoft Visual Studio suite and c
 
 ##Setup
 
-####How Visual Studio is installed
+###What autoupdates affects
 
-Installation will be performed from files stored on a pre-defined network shared in a known structure. This is described in more detail [Here]()
-It will install the full visual studio suite unless only invidiual components have been specified.
+$$$$
 
-####Setup Requirements
-Only Visual Studio 2012 is supported at this time.
+###Beginning with autoupdate
 
-##Usage
-First please read the [Wiki](https://github.com/liamjbennett/puppet-visualstudio/wiki) regarding how we assume your network
-share should be configured. Then installing visualstudio is as simple as:
+Installing Visual Studio 2012:
 
+```puppet
     visualstudio { "visual studio":
       ensure      => present,
       version     => '2012',
       edition     => 'Professional',
       license_key => 'XXX-XXX-XXX-XXX-XXX',
     }
+```
 
+##Usage
+
+###Classes and Defined Types
+
+####Defined Type: `visualstudio`
+The primary definition of this module, it installs and configures the visual studio application on the system
+
+**Parameters within `visualstudio`:**
+#####`ensure`
+Ensure that the application is installed or not.
+
+#####`version`
+The version of visual studio that should be installed
+
+#####`edition`
+The edition of visual studio that should be installed
+
+#####`license_key`
+The license key that corresponds to the version and edition that you have specified. This is required for installation to be successful.
+
+#####`components`
+The list components, tools and utilities that can be installed as part of the visual studio installation.
 
 ##Reference
-Some basic information, for more read the [Wiki](https://github.com/liamjbennett/puppet-visualstudio/wiki)
 
-###Defintions:
-
-visualstudio::package     - the core visual studio installation <br/>
+###Defined Types
+####Public Defined Types
+* [`visualstudio`](#class_visualstudio): Guides the basic installation and configuration of visual studio
 
 
 ##Limitations
-Support for only 2012 <br/>
 
+This module is tested on the following platforms:
+
+* Windows 2008 R2
+
+It is tested with the OSS version of Puppet only.
+
+It support the following Visual Studio versions:
+
+* 2012
 
 ##Development
-Copyright (C) 2013 Liam Bennett - <liamjbennett@gmail.com> <br/>
-Distributed under the terms of the Apache 2 license - see LICENSE file for details. <br/>
-Further contributions and testing reports are extremely welcome - please submit a pull request or issue on [GitHub](https://github.com/liamjbennett/puppet-visualstudio) <br/>
-Please read the [Wiki](https://github.com/liamjbennett/puppet-visualstudio/wiki) as there is a lot of useful information and links that will help you understand this module <br/>
 
+###Contributing
 
-##Release Notes
-
-__0.0.1__ <br/>
-The initial version
+Please read CONTRIBUTING.md for full details on contributing to this project.
