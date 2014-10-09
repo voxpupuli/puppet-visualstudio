@@ -2,17 +2,14 @@ require 'spec_helper'
 
 describe 'visualstudio', :type => :define do
 
-  let :hiera_data do
-    {
-        :windows_deployment_root => '\\test-server\packages',
-    }
-  end
-
   describe "installing with unknown version" do
     let :title do "visual studio with unknown version" end
-    let :params do
-      { :version => 'xxx', :edition => 'Professional', :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX' }
-    end
+    let(:params) {{
+      :version => 'xxx',
+      :edition => 'Professional',
+      :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+    }}
 
     it do
       expect {
@@ -24,9 +21,12 @@ describe 'visualstudio', :type => :define do
   ['2012'].each do |version|
     describe "installing #{version} with wrong edition" do
       let :title do "visual studio for #{version}" end
-      let :params do
-        { :version => version, :edition => "fubat", :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'}
-      end
+      let(:params) {{
+        :version => version,
+        :edition => "fubat",
+        :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+        :deployment_root => '\\test-server\packages'
+      }}
 
       it do
         expect {
@@ -38,9 +38,12 @@ describe 'visualstudio', :type => :define do
 
   describe "incorrect license key" do
     let :title do "visual studio with incorrect license key" end
-    let :params do
-      { :version => '2012', :edition => "Professional", :license_key => 'XXXXX-XXXXX-XXXX-XXXXX-XXXXX'}
-    end
+    let(:params) {{
+      :version => '2012',
+      :edition => "Professional",
+      :license_key => 'XXXXX-XXXXX-XXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+    }}
 
     it do
       expect {
@@ -51,9 +54,13 @@ describe 'visualstudio', :type => :define do
 
   describe "incorrect ensure" do
     let :title do "visual studio with incorrect ensure" end
-    let :params do
-      { :ensure => 'fubar', :version => '2012', :edition => "Professional", :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'}
-    end
+    let(:params) {{
+      :ensure => 'fubar',
+      :version => '2012',
+      :edition => "Professional",
+      :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+    }}
 
     it do
       expect {
@@ -65,9 +72,12 @@ describe 'visualstudio', :type => :define do
   ['2012'].each do |version|
     describe "installs the core package for #{version}" do
       let :title do "visual studio #{version}" end
-      let :params do
-        { :version => version, :edition => 'Professional', :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'}
-      end
+      let(:params) {{
+        :version => version,
+        :edition => 'Professional',
+        :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+        :deployment_root => '\\test-server\packages'
+      }}
 
       it { should contain_visualstudio__package("visual studio #{version}")}
     end

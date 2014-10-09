@@ -9,8 +9,7 @@
 #
 class visualstudio::params {
   $temp_dir = 'C:\\Windows\\Temp'
-  $deployment_root = ''
-
+  
   $component_list = [
     'WebTools', 'OfficeTools', 'SharepointTools', 'LightSwitch', 'SilverLight_Developer_Kit',
     'SQL','VC_MFC_Libraries','Blend','BlissHidden','HelpHidden', 'LocalDBHidden', 'NetFX4Hidden',

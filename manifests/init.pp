@@ -28,6 +28,9 @@
 # [*ensure*]
 # Control the existence of visualstudio
 #
+# [*deployment_root*]
+# Network location where the visual studio packages are located
+#
 # === Examples:
 #
 #  Install visual studio 2012:
@@ -36,13 +39,15 @@
 #      ensure      => 'present',
 #      version     => '2012',
 #      edition     => 'professional',
-#      license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'
+#      license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+#      deployment_root => '\\server.mydomain.com\packages\VS2012'
 #    }
 #
 define visualstudio(
   $version,
   $edition,
   $license_key,
+  $deployment_root,
   $components = [],
   $ensure = 'present'
 ) {
@@ -61,11 +66,12 @@ define visualstudio(
   validate_re($ensure,'^(present|absent)$', 'The ensure argument does not match present or absent')
 
   visualstudio::package { "visual studio ${version}":
-    ensure      => $ensure,
-    version     => $version,
-    edition     => $edition,
-    license_key => $license_key,
-    components  => $components,
+    ensure          => $ensure,
+    version         => $version,
+    edition         => $edition,
+    license_key     => $license_key,
+    components      => $components,
+    deployment_root => $deployment_root
   }
 
 }

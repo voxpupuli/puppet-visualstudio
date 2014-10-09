@@ -27,7 +27,8 @@ The purpose of this module is to install the Microsoft Visual Studio suite and c
 
 ###What autoupdates affects
 
-$$$$
+* Installs packages
+* Alters registry keys
 
 ###Beginning with autoupdate
 
@@ -64,6 +65,9 @@ The license key that corresponds to the version and edition that you have specif
 
 #####`components`
 The list components, tools and utilities that can be installed as part of the visual studio installation.
+
+#####`deployment_root`
+Network location where the visual studio packages are located
 
 ##Reference
 

@@ -2,17 +2,15 @@ require 'spec_helper'
 
 describe 'visualstudio::package', :type => :define do
 
-  let :hiera_data do
-    {
-        :windows_deployment_root => '\\test-server\packages',
-    }
-  end
 
   describe 'installing with unknown version' do
     let :title do 'visual studio with unknown version' end
-    let :params do
-      { :version => 'xxx', :edition => 'Professional', :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX' }
-    end
+    let(:params) {{
+      :version => 'xxx',
+      :edition => 'Professional',
+      :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+    }}
 
     it do
       expect {
@@ -24,9 +22,12 @@ describe 'visualstudio::package', :type => :define do
   ['2012'].each do |version|
     describe "installing #{version} with wrong edition" do
       let :title do "visual studio for #{version}" end
-      let :params do
-        { :version => version, :edition => 'fubar', :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'}
-      end
+      let(:params) {{
+        :version => version,
+        :edition => 'fubar',
+        :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+        :deployment_root => '\\test-server\packages'
+      }}
 
       it do
         expect {
@@ -38,9 +39,12 @@ describe 'visualstudio::package', :type => :define do
 
   describe "incorrect license key" do
     let :title do "visual studio with incorrect license key" end
-    let :params do
-      { :version => '2012', :edition => 'Professional', :license_key => 'XXXXX-XXXXX-XXXX-XXXXX-XXXXX'}
-    end
+    let(:params) {{
+      :version => '2012',
+      :edition => 'Professional',
+      :license_key => 'XXXXX-XXXXX-XXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+    }}
 
     it do
       expect {
@@ -51,9 +55,14 @@ describe 'visualstudio::package', :type => :define do
 
   describe "incorrect ensure" do
     let :title do "visual studio with incorrect ensure" end
-    let :params do
-      { :ensure => 'fubar', :version => '2012', :edition => 'Professional', :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX'}
-    end
+    let(:params) {{
+      :ensure => 'fubar',
+      :version => '2012',
+      :edition => 'Professional',
+      :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+      :deployment_root => '\\test-server\packages'
+
+    }}
 
     it do
       expect {
@@ -65,9 +74,12 @@ describe 'visualstudio::package', :type => :define do
   ['Professional','Test Professional','Premium','Ultimate'].each do |edition|
     describe "installing visualstudio 2012 #{edition}" do
       let :title do 'visual studio 2012' end
-      let :params do
-        { :version => '2012', :edition => edition, :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX' }
-      end
+      let(:params) {{
+        :version => '2012',
+        :edition => edition,
+        :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+        :deployment_root => '\\test-server\packages'
+      }}
 
       it { should contain_exec('install-visualstudio').with(
         'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /adminfile \"C:\\\\Windows\\\\Temp\\visualstudio_config.xml\" /quiet /norestart",
@@ -79,9 +91,13 @@ describe 'visualstudio::package', :type => :define do
   ['Professional','Test Professional','Premium','Ultimate'].each do |edition|
     describe "uninstalling visualstudio 2012 #{edition}" do
       let :title do 'visual studio 2012' end
-      let :params do
-        { :version => '2012', :edition => edition, :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX', :ensure => 'absent' }
-      end
+      let(:params) {{
+        :version => '2012',
+        :edition => edition,
+        :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+        :ensure => 'absent',
+        :deployment_root => '\\test-server\packages'
+      }}
 
       it { should contain_exec('uninstall-visualstudio').with(
         'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /uninstall /quiet /norestart",
@@ -89,5 +105,5 @@ describe 'visualstudio::package', :type => :define do
       )}
     end
   end
-  
+
 end

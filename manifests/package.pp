@@ -13,6 +13,7 @@ define visualstudio::package(
   $version,
   $edition,
   $license_key,
+  $deployment_root,
   $components = [],
   $ensure = 'present'
 ) {
@@ -32,7 +33,7 @@ define visualstudio::package(
 
   case $version {
     '2012': {
-      $vs_root = "${visualstudio::params::deployment_root}\\VS2012\\${edition}"
+      $vs_root = "${deployment_root}\\VS2012\\${edition}"
       $vs_reg_key = 'HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{17c2e197-cf26-443b-8beb-53151940df3f}'
     }
     default: {
@@ -43,7 +44,7 @@ define visualstudio::package(
   }
 
   if size($components) == 0 {
-    $compnents = $visualstudio::params::components_list
+    $compnents = $visualstudio::params::component_list
   }
 
   if $ensure == 'present' {
