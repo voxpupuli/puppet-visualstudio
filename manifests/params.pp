@@ -8,7 +8,7 @@
 # It sets variables according to platform
 #
 class visualstudio::params {
-  $temp_dir = 'C:\\Windows\\Temp'
+  $temp_dir = 'C:\Windows\Temp'
   
   $component_list = [
     'WebTools', 'OfficeTools', 'SharepointTools', 'LightSwitch', 'SilverLight_Developer_Kit',
