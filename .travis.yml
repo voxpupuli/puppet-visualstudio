@@ -18,3 +18,14 @@ matrix:
   - rvm: 2.1.0
     env: PUPPET_GEM_VERSION="~> 3.0" STRICT_VARIABLES=yes FUTURE_PARSER="yes"
 
+deploy:
+  provider: puppetforge
+  user: puppet
+  password:
+    secure: "E6O75uld/9FPXsXbi0wRSCBkGj3f2LFd1pegFDekHfF0CdEDctkbcFDRUJV4KnGchswIUVPGD+Hht0IzJU3gPj+ogVgHZ5g9jDBKUO22PyIvMN5HzuVhJv9cFci2GeFky6EggFlrEo+2IAI355xxfcAtghQPKCWjYoVib8zNA9I="
+  on:
+    tags: true
+    # all_branches is required to use tags
+    all_branches: true
+    # Only publish if our main Ruby target builds
+    rvm: 1.9.3
