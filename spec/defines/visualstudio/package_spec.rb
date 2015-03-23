@@ -15,7 +15,7 @@ describe 'visualstudio::package', :type => :define do
     it do
       expect {
         should contain_visualstudio__package('visual studio 2012')
-      }.to raise_error(Puppet::Error) {|e| expect(e.to_s).to match 'The version argument specified does not match a supported version of visual studio' }
+      }.to raise_error
     end
   end
 
@@ -32,7 +32,7 @@ describe 'visualstudio::package', :type => :define do
       it do
         expect {
           should contain_visualstudio__package("visual studio #{version}")
-        }.to raise_error(Puppet::Error) {|e| expect(e.to_s).to match 'The edition argument does not match a valid edition for the specified version of visual studio' }
+        }.to raise_error
       end
     end
   end
@@ -49,7 +49,7 @@ describe 'visualstudio::package', :type => :define do
     it do
       expect {
         should contain_visualstudio__package("visual studio 2012")
-      }.to raise_error(Puppet::Error) {|e| expect(e.to_s).to match 'The license_key argument speicifed is not correctly formatted' }
+      }.to raise_error
     end
   end
 
@@ -61,13 +61,12 @@ describe 'visualstudio::package', :type => :define do
       :edition => 'Professional',
       :license_key => 'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
       :deployment_root => '\\test-server\packages'
-
     }}
 
     it do
       expect {
         should contain_visualstudio__package("visual studio 2012")
-      }.to raise_error(Puppet::Error) {|e| expect(e.to_s).to match 'The ensure argument does not match present or absent' }
+      }.to raise_error
     end
   end
 
@@ -82,7 +81,7 @@ describe 'visualstudio::package', :type => :define do
       }}
 
       it { should contain_exec('install-visualstudio').with(
-        'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /adminfile \"C:\\\\Windows\\\\Temp\\visualstudio_config.xml\" /quiet /norestart",
+        'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /adminfile \"C:\\Windows\\Temp\\visualstudio_config.xml\" /quiet /norestart",
         'provider' => 'powershell'
       )}
     end
