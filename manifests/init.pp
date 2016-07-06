@@ -1,7 +1,3 @@
-# Author::    Liam Bennett (mailto:liamjbennett@gmail.com)
-# Copyright:: Copyright (c) 2014 Liam Bennett
-# License::   MIT
-
 # == Define: visualstudio
 #
 # Module to manage the installation of Microsoft Visual Studio
