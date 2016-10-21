@@ -1,12 +1,12 @@
 {
   "name":         "puppet-visualstudio",
   "version":      "1.0.0",
-  "author":       "puppet-community",
-  "license":      "Apache 2.0",
+  "author":       "Vox Pupuli",
+  "license":      "Apache-2.0",
   "summary":      "Module for managing Microsoft Visual Studio",
-  "source":       "https://github.com/puppet-community/puppet-visualstudio",
-  "project_page": "https://github.com/puppet-community/puppet-visualstudio",
-  "issues_url":   "https://github.com/puppet-community/puppet-visualstudio/issues",
+  "source":       "https://github.com/voxpupuli/puppet-visualstudio",
+  "project_page": "https://github.com/voxpupuli/puppet-visualstudio",
+  "issues_url":   "https://github.com/voxpupuli/puppet-visualstudio/issues",
   "operatingsystem_support": [
     {
       "operatingsystem": "windows",

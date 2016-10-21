@@ -14,7 +14,7 @@ define visualstudio::package(
   $ensure = 'present'
 ) {
 
-  include visualstudio::params
+  include ::visualstudio::params
 
   validate_re($version,'^(2012)', 'The version argument specified does not match a supported version of visual studio')
 
@@ -56,14 +56,14 @@ define visualstudio::package(
       provider  => powershell,
       logoutput => true,
       unless    => "if ((Get-Item -LiteralPath \'\\${vs_reg_key}\' -ErrorAction SilentlyContinue).GetValue(\'DisplayVersion\')) { exit 1 }",
-      require   => File["${visualstudio::params::temp_dir}\\visualstudio_config.xml"]
+      require   => File["${visualstudio::params::temp_dir}\\visualstudio_config.xml"],
     }
   } elsif $ensure == 'absent' {
     exec { 'uninstall-visualstudio':
       command   => "& \"${vs_root}\\vs_${edition}.exe\" /uninstall /quiet /norestart",
       provider  => powershell,
       logoutput => true,
-      onlyif    => "if ((Get-Item -LiteralPath \'\\${vs_reg_key}\' -ErrorAction SilentlyContinue).GetValue(\'DisplayVersion\')) { exit 1 }"
+      onlyif    => "if ((Get-Item -LiteralPath \'\\${vs_reg_key}\' -ErrorAction SilentlyContinue).GetValue(\'DisplayVersion\')) { exit 1 }",
     }
   } else {
     notify { "do not understand ensure agrument: ${ensure}": }
