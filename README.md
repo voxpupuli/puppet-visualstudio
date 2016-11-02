@@ -1,5 +1,12 @@
 # Visual Studio module for Puppet
 
+[![Build Status](https://travis-ci.org/voxpupuli/puppet-visualstudio.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-visualstudio)
+[![Code Coverage](https://coveralls.io/repos/github/voxpupuli/puppet-visualstudio/badge.svg?branch=master)](https://coveralls.io/github/voxpupuli/puppet-visualstudio)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
+
 #### Table of Contents
 
 1. [Overview](#overview)
