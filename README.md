@@ -1,36 +1,36 @@
-# puppet-visualstudio
+# Visual Studio module for Puppet
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What is the visualstudio module?](#module-description)
-3. [Setup - The basics of getting started with visualstudio](#setup)
+1. [Module Description - What is the visualstudio module?](#module-description)
+1. [Setup - The basics of getting started with visualstudio](#setup)
     * [What visualstudio affects](#what-visualstudio-affects)
-    * [Setup requirements](#setup-requirements)
     * [Beginning with visualstudio](#beginning-with-visualstudio)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+1. [Usage - Configuration options and additional functionality](#usage)
+1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+1. [Limitations - OS compatibility, etc.](#limitations)
+1. [Development - Guide for contributing to the module](#development)
 
-##Overview
+## Overview
 
 Puppet module for managing [Microsoft Visual Studio](http://www.visualstudio.com/)
 
 [![Build Status](https://secure.travis-ci.org/liamjbennett/puppet-visualstudio.png)](http://travis-ci.org/liamjbennett/puppet-visualstudio)
 
-##Module Description
+## Module Description
 
-The purpose of this module is to install the Microsoft Visual Studio suite and configure it's many service packs, tools, utilities and registry options.
+The purpose of this module is to install the Microsoft Visual Studio suite and
+configure it's many service packs, tools, utilities and registry options.
 
-##Setup
+## Setup
 
-###What autoupdates affects
+### What autoupdates affects
 
 * Installs packages
 * Alters registry keys
 
-###Beginning with autoupdate
+### Beginning with autoupdate
 
 Installing Visual Studio 2012:
 
@@ -43,40 +43,53 @@ Installing Visual Studio 2012:
     }
 ```
 
-##Usage
+## Usage
 
-###Classes and Defined Types
+### Classes and Defined Types
 
-####Defined Type: `visualstudio`
-The primary definition of this module, it installs and configures the visual studio application on the system
+#### Defined Type: `visualstudio`
+
+The primary definition of this module, it installs and configures the visual
+studio application on the system
 
 **Parameters within `visualstudio`:**
-#####`ensure`
+
+##### `ensure`
+
 Ensure that the application is installed or not.
 
-#####`version`
+##### `version`
+
 The version of visual studio that should be installed
 
-#####`edition`
+##### `edition`
+
 The edition of visual studio that should be installed
 
-#####`license_key`
-The license key that corresponds to the version and edition that you have specified. This is required for installation to be successful.
+##### `license_key`
 
-#####`components`
-The list components, tools and utilities that can be installed as part of the visual studio installation.
+The license key that corresponds to the version and edition that you have
+specified. This is required for installation to be successful.
 
-#####`deployment_root`
+##### `components`
+
+The list components, tools and utilities that can be installed as part of the
+visual studio installation.
+
+##### `deployment_root`
+
 Network location where the visual studio packages are located
 
-##Reference
+## Reference
 
-###Defined Types
-####Public Defined Types
-* [`visualstudio`](#class_visualstudio): Guides the basic installation and configuration of visual studio
+### Defined Types
 
+#### Public Defined Types
 
-##Limitations
+* [`visualstudio`](#class_visualstudio): Guides the basic installation and
+  configuration of visual studio
+
+## Limitations
 
 This module is tested on the following platforms:
 
@@ -88,8 +101,8 @@ It support the following Visual Studio versions:
 
 * 2012
 
-##Development
+## Development
 
-###Contributing
+### Contributing
 
 Please read CONTRIBUTING.md for full details on contributing to this project.
