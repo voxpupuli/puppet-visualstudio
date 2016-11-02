@@ -14,7 +14,7 @@ describe 'visualstudio::package', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error
     end
   end
@@ -33,7 +33,7 @@ describe 'visualstudio::package', type: :define do
 
       it do
         expect do
-          should contain_visualstudio__package("visual studio #{version}")
+          is_expected.to contain_visualstudio__package("visual studio #{version}")
         end.to raise_error
       end
     end
@@ -52,7 +52,7 @@ describe 'visualstudio::package', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error
     end
   end
@@ -71,7 +71,7 @@ describe 'visualstudio::package', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error
     end
   end
@@ -89,7 +89,7 @@ describe 'visualstudio::package', type: :define do
       end
 
       it do
-        should contain_exec('install-visualstudio').with(
+        is_expected.to contain_exec('install-visualstudio').with(
           'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /adminfile \"C:\\Windows\\Temp\\visualstudio_config.xml\" /quiet /norestart",
           'provider' => 'powershell'
         )
@@ -111,7 +111,7 @@ describe 'visualstudio::package', type: :define do
       end
 
       it do
-        should contain_exec('uninstall-visualstudio').with(
+        is_expected.to contain_exec('uninstall-visualstudio').with(
           'command' => "& \"\\test-server\\packages\\VS2012\\#{edition}\\vs_#{edition}.exe\" /uninstall /quiet /norestart",
           'provider' => 'powershell'
         )

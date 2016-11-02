@@ -7,5 +7,5 @@ describe 'visualstudio::params', type: :class do
     }
   end
 
-  it { should have_resource_count(0) }
+  it { is_expected.to have_resource_count(0) }
 end

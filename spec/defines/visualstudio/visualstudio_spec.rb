@@ -14,7 +14,7 @@ describe 'visualstudio', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error(Puppet::Error, %r{The version argument specified does not match a supported version of visual studio})
     end
   end
@@ -33,7 +33,7 @@ describe 'visualstudio', type: :define do
 
       it do
         expect do
-          should contain_visualstudio__package("visual studio #{version}")
+          is_expected.to contain_visualstudio__package("visual studio #{version}")
         end.to raise_error(Puppet::Error, %r{The edition argument does not match a valid edition for the specified version of visual studio})
       end
     end
@@ -52,7 +52,7 @@ describe 'visualstudio', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error(Puppet::Error, %r{The license_key argument speicifed is not correctly formatted})
     end
   end
@@ -71,7 +71,7 @@ describe 'visualstudio', type: :define do
 
     it do
       expect do
-        should contain_visualstudio__package('visual studio 2012')
+        is_expected.to contain_visualstudio__package('visual studio 2012')
       end.to raise_error(Puppet::Error, %r{The ensure argument does not match present or absent})
     end
   end
@@ -88,7 +88,7 @@ describe 'visualstudio', type: :define do
         }
       end
 
-      it { should contain_visualstudio__package("visual studio #{version}") }
+      it { is_expected.to contain_visualstudio__package("visual studio #{version}") }
     end
   end
 end
