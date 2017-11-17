@@ -1,6 +1,6 @@
 ---
 .travis.yml:
-  secure: "RrAmWtM6eTjZZzD954AIgR179Pqp14lzHhd/C9cpKbTPynLncuim08CEvjmq+7pgAy9XDg1d02x3udfZt4btR1sBdyNRpNN3yUhWptmGU61HRJdiZq+nSLQkIYsqXanhk+O3NndFojO58WRD01dkWEc6HRHjlivuYNxDXmMkg9k="
+  secure: "g77bF8nhzpi2zvqeyMb1smOWeSynjIT7YHz5wpElZ7vbFQXwwqwUgmkqxjVWt8ntjdZsEj/mvahYSIA9rOKW1Y/LBYatDIPn4JIZWn0JtlcCcQbLQJhBuA/g+8vjhCzIV1Pf1TRVcGyhH2TvJghhbBefbU9fmkYE89TFQF42LHw="
 #spec/spec_helper_acceptance.rb:
 # Temporarily unmanage spec_helper_acceptance (iss. #133)
 #  windows: true
