@@ -3,5 +3,3 @@ fixtures:
     stdlib:  git://github.com/puppetlabs/puppetlabs-stdlib.git
     powershell:  git://github.com/joshcooper/puppetlabs-powershell.git
     win_facts:  git://github.com/liamjbennett/puppet-win_facts.git
-  symlinks:
-    visualstudio: "#{source_dir}"
