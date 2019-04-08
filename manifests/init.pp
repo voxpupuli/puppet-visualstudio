@@ -48,7 +48,7 @@ define visualstudio(
   $ensure = 'present'
 ) {
 
-  include ::visualstudio::params
+  include visualstudio::params
 
   validate_re($version,'^(2012)$', 'The version argument specified does not match a supported version of visual studio')
 
