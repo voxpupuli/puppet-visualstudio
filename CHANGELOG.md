@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.0.0](https://github.com/voxpupuli/puppet-visualstudio/tree/v4.0.0) (2020-05-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-visualstudio/compare/v3.0.3...v4.0.0)
+
+**Breaking changes:**
+
+- modulesync 2.7.0 and drop puppet 4 [\#36](https://github.com/voxpupuli/puppet-visualstudio/pull/36) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- Allow puppetlabs/stdlib 6.x [\#40](https://github.com/voxpupuli/puppet-visualstudio/pull/40) ([dhoppe](https://github.com/dhoppe))
+
 ## [v3.0.3](https://github.com/voxpupuli/puppet-visualstudio/tree/v3.0.3) (2018-10-20)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-visualstudio/compare/v3.0.2...v3.0.3)
@@ -38,6 +50,10 @@ These should not affect the functionality of the module.
 
 - bump puppet version dependency to \>= 4.7.1 \< 6.0.0 [\#19](https://github.com/voxpupuli/puppet-visualstudio/pull/19) ([bastelfreak](https://github.com/bastelfreak))
 - Fix github license detection [\#17](https://github.com/voxpupuli/puppet-visualstudio/pull/17) ([alexjfisher](https://github.com/alexjfisher))
+- Set min version\_requirement for Puppet + bump deps [\#10](https://github.com/voxpupuli/puppet-visualstudio/pull/10) ([juniorsysadmin](https://github.com/juniorsysadmin))
+- Add missing badges [\#4](https://github.com/voxpupuli/puppet-visualstudio/pull/4) ([dhoppe](https://github.com/dhoppe))
+- Update based on voxpupuli/modulesync\_config 0.14.1 [\#3](https://github.com/voxpupuli/puppet-visualstudio/pull/3) ([dhoppe](https://github.com/dhoppe))
+- Sync LICENSE file to same as in metadata.json \(Apache-2.0\) [\#2](https://github.com/voxpupuli/puppet-visualstudio/pull/2) ([juniorsysadmin](https://github.com/juniorsysadmin))
 
 ## [v2.0.0](https://github.com/voxpupuli/puppet-visualstudio/tree/v2.0.0) (2017-02-12)
 
