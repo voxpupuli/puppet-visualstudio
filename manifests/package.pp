@@ -5,7 +5,7 @@
 # This private definition is meant to be called from `visualstudio`
 # It sets variables according to platform
 #
-define visualstudio::package(
+define visualstudio::package (
   $version,
   $edition,
   $license_key,
@@ -13,7 +13,6 @@ define visualstudio::package(
   $components = [],
   $ensure = 'present'
 ) {
-
   include visualstudio::params
 
   validate_re($version,'^(2012)', 'The version argument specified does not match a supported version of visual studio')
