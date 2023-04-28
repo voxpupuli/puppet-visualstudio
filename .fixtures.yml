@@ -1,5 +1,5 @@
 fixtures:
   repositories:
-    stdlib:  git://github.com/puppetlabs/puppetlabs-stdlib.git
-    powershell:  git://github.com/joshcooper/puppetlabs-powershell.git
-    win_facts:  git://github.com/liamjbennett/puppet-win_facts.git
+    stdlib:  https://github.com/puppetlabs/puppetlabs-stdlib.git
+    powershell:  https://github.com/joshcooper/puppetlabs-powershell.git
+    win_facts:  https://github.com/liamjbennett/puppet-win_facts.git
