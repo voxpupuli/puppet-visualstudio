@@ -1,30 +1,19 @@
-# == Define: visualstudio::package
-#
-# This class installs the Microsoft Visual Studio on windows
-#
-# This private definition is meant to be called from `visualstudio`
-# It sets variables according to platform
+# @summary
+#   Installs Virtualstudio. This private definition is meant to be called from `visualstudio`. It sets variables according to platform.
 #
 define visualstudio::package (
-  $version,
+  Pattern['^(2012)'] $version,
   $edition,
-  $license_key,
+  Pattern['^([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})$'] $license_key,
   $deployment_root,
-  $components = [],
-  $ensure = 'present'
+  Array $components = [],
+  Enum['present','absent'] $ensure = 'present'
 ) {
   include visualstudio::params
 
-  validate_re($version,'^(2012)', 'The version argument specified does not match a supported version of visual studio')
-
-  $edition_regex = join($visualstudio::params::vs_versions[$version]['editions'], '|')
-  validate_re($edition,"^${edition_regex}$", 'The edition argument does not match a valid edition for the specified version of visual studio')
-
-  validate_re($license_key,'^([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})$', 'The license_key argument speicifed is not correctly formatted')
-
-  validate_array($components)
-
-  validate_re($ensure,'^(present|absent)$', 'The ensure argument does not match present or absent')
+  #For now we might want to ignore this, this cannot be easily rewritten as a datatype
+  #$edition_regex = join($visualstudio::params::vs_versions[$version]['editions'], '|')
+  #validate_re($edition,"^${edition_regex}$", 'The edition argument does not match a valid edition for the specified version of visual studio')
 
   case $version {
     '2012': {

@@ -1,31 +1,23 @@
-# == Define: visualstudio
+# @summary
+#   Module to manage the installation of Microsoft Visual Studio
 #
-# Module to manage the installation of Microsoft Visual Studio
+# @param version
+#   The version of visual studio to install
 #
-# === Requirements/Dependencies
+# @param edition
+#   The edition of visual studio
 #
-# Currently reequires the puppetlabs/stdlib module on the Puppet Forge in
-# order to validate much of the the provided configuration.
+# @param components
+#   The list of components to install as part of the visual studio suite
 #
-# === Parameters
+# @param license_key
+#   The license key required to install
 #
-# [*version*]
-# The version of visual studio to install
+# @param ensure
+#   Control the existence of visualstudio
 #
-# [*edition*]
-# The edition of visual studio
-#
-# [*component*]
-# The list of components to install as part of the visual studio suite
-#
-# [*license_key*]
-# The license key required to install
-#
-# [*ensure*]
-# Control the existence of visualstudio
-#
-# [*deployment_root*]
-# Network location where the visual studio packages are located
+# @param deployment_root
+#   Network location where the visual studio packages are located
 #
 # === Examples:
 #
@@ -40,25 +32,18 @@
 #    }
 #
 define visualstudio (
-  $version,
+  Pattern['^(2012)$'] $version,
   $edition,
-  $license_key,
+  Pattern['([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})$'] $license_key,
   $deployment_root,
-  $components = [],
-  $ensure = 'present'
+  Array $components = [],
+  Enum['present','absent'] $ensure = 'present'
 ) {
   include visualstudio::params
 
-  validate_re($version,'^(2012)$', 'The version argument specified does not match a supported version of visual studio')
-
-  $edition_regex = join($visualstudio::params::vs_versions[$version]['editions'], '|')
-  validate_re($edition,"^${edition_regex}$", 'The edition argument does not match a valid edition for the specified version of visual studio')
-
-  validate_re($license_key,'([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})-([A-Z1-9]{5})$', 'The license_key argument speicifed is not correctly formatted')
-
-  validate_array($components)
-
-  validate_re($ensure,'^(present|absent)$', 'The ensure argument does not match present or absent')
+  #For now we might want to ignore this, this cannot be easily rewritten as a datatype
+  #$edition_regex = join($visualstudio::params::vs_versions[$version]['editions'], '|')
+  #validate_re($edition,"^${edition_regex}$", 'The edition argument does not match a valid edition for the specified version of visual studio')
 
   visualstudio::package { "visual studio ${version}":
     ensure          => $ensure,
