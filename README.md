@@ -7,6 +7,8 @@
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
 [![Puppet Forge - scores](https://img.shields.io/puppetforge/f/puppet/visualstudio.svg)](https://forge.puppetlabs.com/puppet/visualstudio)
 
+**The module is deprecated, please reach out to the Vox Pupuli mailinglist at voxpupuli@groups.io if you're still using it**
+
 #### Table of Contents
 
 1. [Overview](#overview)
